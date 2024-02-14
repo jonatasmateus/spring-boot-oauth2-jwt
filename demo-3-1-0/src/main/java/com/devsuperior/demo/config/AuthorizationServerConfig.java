@@ -68,7 +68,8 @@ public class AuthorizationServerConfig {
 	private UserDetailsService userDetailsService;
 
 	@Bean
-	@Order(2)
+	@Order(2) // There are two other SecurityFilterChain configured on the ResourceServer; That's why there is this Order
+	// Enable Authorization server
 	public SecurityFilterChain asSecurityFilterChain(HttpSecurity http) throws Exception {
 
 		OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
